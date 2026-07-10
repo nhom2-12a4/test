@@ -335,6 +335,124 @@
     }
 
 }
+/* ==========================
+   FIX RESPONSIVE MOBILE
+   CAKE AUTO SCALE
+========================== */
+
+#cake {
+    width: min(200px, 40vw);
+    height: auto;
+}
+
+
+/* Tablet + Mobile */
+@media (max-width: 600px) {
+
+    html, body {
+        overflow: hidden;
+    }
+
+
+    /* Bánh tự thu nhỏ */
+    #cake {
+        width: 150px;
+        height: auto;
+        margin: -80px auto 0 auto;
+    }
+
+
+    /* Nến theo bánh */
+    .vela-grande {
+        width: 18px;
+        height: 80px;
+
+        margin-left: -9px;
+        margin-top: -55px;
+    }
+
+
+    .flama-grande {
+        width: 18px;
+        height: 28px;
+
+        margin-left: -9px;
+        top: -30px;
+    }
+
+
+    /* Happy Birthday */
+    .birthday-container {
+        top: calc(50% - 190px);
+    }
+
+
+    #birthday-text {
+        font-size: 2.2em;
+    }
+
+
+    /* Tên người nhận */
+    .text-container {
+    position: absolute;
+    bottom: 100px; /* tăng lên để chữ lên cao */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+}
+
+
+    #love-text {
+        font-size: 2em;
+    }
+
+
+    /* Phong thư */
+    .letter-box {
+
+        width: 80px;
+        height: 65px;
+
+        left: calc(50% + 75px);
+        top: calc(50% + 80px);
+    }
+
+}
+
+
+/* Điện thoại nhỏ */
+@media(max-width:380px){
+
+    #cake {
+        width: 125px;
+    }
+
+
+    .birthday-container {
+        top: calc(50% - 160px);
+    }
+
+
+    #birthday-text {
+        font-size: 1.8em;
+    }
+
+
+    #love-text {
+        font-size: 1.6em;
+    }
+
+
+    .letter-box {
+
+        width: 65px;
+        height: 55px;
+
+        left: calc(50% + 60px);
+    }
+
+}
   </style>
 </head>
 <body>
