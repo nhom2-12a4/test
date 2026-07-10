@@ -216,6 +216,125 @@
       z-index: 50; 
       box-shadow: 0 0 10px currentColor; 
     }
+ .birthday-container {
+    position: absolute;
+    top: calc(50% - 290px); /* giảm số âm để chữ xuống dưới */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+}
+
+#birthday-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5em; /* chữ to hơn */
+    font-weight: 700;
+    margin: 0;
+}
+
+
+@media(max-width:600px){
+
+    .birthday-container {
+        top: calc(50% - 260px);
+    }
+
+    #birthday-text {
+        font-size: 2.2em;
+    }
+
+}
+#birthday-text,
+#love-text {
+    white-space: nowrap;
+}
+
+@media(max-width:600px){
+
+    #birthday-text {
+        font-size: 2.2em;
+    }
+
+    #love-text {
+        font-size: 2em;
+    }
+
+    .birthday-container {
+        top: calc(50% - 260px);
+    }
+
+    .text-container {
+        bottom: 40px;
+    }
+}
+.letter-box {
+    position: absolute;
+    left: calc(50% + 50px); /* đưa sát bánh hơn */
+    top: 50%;
+    width: 120px;
+    height: 95px;
+    transform: translateY(-50%) scale(0) rotate(12deg);
+    opacity: 0;
+    z-index: 30;
+    cursor: pointer;
+    transition: 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(255,75,130,0.5));
+}
+
+
+.letter-box.show {
+    opacity: 1;
+    animation: flyLetter 1.2s ease forwards,
+    letterPulse 1.5s 1.2s infinite ease-in-out;
+}
+
+@keyframes flyLetter {
+    from {
+        transform: translate(-100px,50px) scale(0);
+    }
+    to {
+        transform: translate(0,0) scale(1);
+    }
+}
+@keyframes letterPulse {
+
+    0%,100% {
+        transform: translate(0,0) scale(1) rotate(12deg);
+        filter: drop-shadow(0 0 10px rgba(255,75,130,0.5));
+    }
+
+    50% {
+        transform: translate(0,-5px) scale(1.12) rotate(12deg);
+        filter: drop-shadow(0 0 30px rgba(255,75,130,1));
+    }
+
+}
+
+/* điện thoại */
+@media(max-width:600px){
+
+    .letter-box {
+        left: calc(50% + 55px);
+        top: calc(50% + 130px);
+        width: 95px;
+        height: 75px;
+        transform: translateY(-50%) scale(0) rotate(12deg);
+    }
+
+    .letter-box.show {
+        transform: translateY(-50%) scale(1) rotate(12deg);
+    }
+
+}
   </style>
 </head>
 <body>
@@ -248,7 +367,13 @@
     </path>
     <rect x="10" y="475.571" fill="#fff0f5" width="180" height="4" />
 </svg>
+<div class="letter-box">
+    <img src="letter.png" alt="Letter">
+</div>
 
+<div class="birthday-container">
+    <h1 id="birthday-text"></h1>
+</div>
 <div class="text-container">
     <h1 id="love-text"></h1>
 </div>
@@ -280,8 +405,51 @@
 
         starsContainer.append(star);
     }
+const birthdayMessage = "Happy Birthday";
+const birthdayElement = $("#birthday-text");
+let birthdayIndex = 0;
 
-    const loveMessage = "Happy Birthday Bảo Ngọc!";
+function typeBirthday(){
+
+    if(birthdayIndex < birthdayMessage.length){
+
+        let char = birthdayMessage.charAt(birthdayIndex);
+
+        let span = $('<span class="letter"></span>')
+        .html(char === " " ? "&nbsp;" : char);
+
+
+        if(char !== " " && Math.random() > 0.55){
+
+            span.addClass("flicker-neon");
+
+            span.css(
+                "animation-delay",
+                Math.random()*2+"s"
+            );
+
+            span.css(
+                "animation-duration",
+                (Math.random()*2+1.5)+"s"
+            );
+
+        }
+
+
+        birthdayElement.append(span);
+
+        birthdayIndex++;
+
+        setTimeout(typeBirthday,150);
+    }
+
+}
+
+setTimeout(() => {
+    $(".letter-box").addClass("show");
+}, 11000);
+setTimeout(typeBirthday,6000);
+    const loveMessage = "Bảo Ngọc!";
     const textElement = $("#love-text");
     let index = 0;
 
@@ -303,7 +471,7 @@
         }
     }
 
-    setTimeout(type, 6000);
+    setTimeout(type, 8000);
 
     function explodeFirework() {
         const startX = Math.random() * 40 + 30; 
