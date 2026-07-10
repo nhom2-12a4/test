@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Con Amor para Ti - By AlexDev</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <style>
@@ -76,7 +77,7 @@
       top: 50%;
       left: 50%;
       margin-left: -12.5px; 
-      margin-top: -80px; 
+      margin-top: -60px; 
       width: 25px; 
       height: 120px; 
       transform: translateY(-300px);
@@ -143,13 +144,13 @@
     }
 
     .text-container {
-      position: absolute;
-      bottom: 60px;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 20;
-    }
+    position: absolute;
+    top: calc(50% + 180px);
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+}
 
     #love-text {
       font-family: 'Dancing Script', cursive;
@@ -233,39 +234,10 @@
 }
 
 
-@media(max-width:600px){
 
-    .birthday-container {
-        top: calc(50% - 260px);
-    }
-
-    #birthday-text {
-        font-size: 2.2em;
-    }
-
-}
 #birthday-text,
 #love-text {
     white-space: nowrap;
-}
-
-@media(max-width:600px){
-
-    #birthday-text {
-        font-size: 2.2em;
-    }
-
-    #love-text {
-        font-size: 2em;
-    }
-
-    .birthday-container {
-        top: calc(50% - 260px);
-    }
-
-    .text-container {
-        bottom: 40px;
-    }
 }
 .letter-box {
     position: absolute;
@@ -318,115 +290,56 @@
     }
 
 }
+/* ================= MOBILE RESPONSIVE ================= */
+ /* Mobile */
+@media screen and (max-width: 768px) {
 
-/* điện thoại */
-@media(max-width:600px){
-
-    .letter-box {
-        left: calc(50% + 55px);
-        top: calc(50% + 130px);
-        width: 95px;
-        height: 75px;
-        transform: translateY(-50%) scale(0) rotate(12deg);
+    body{
+        zoom:1.35;
     }
 
-    .letter-box.show {
-        transform: translateY(-50%) scale(1) rotate(12deg);
+    #cake{
+        transform: scale(1.35);
+        transform-origin:center;
+    }
+
+    .birthday-container{
+        top:calc(50% - 250px);
+    }
+
+    .text-container{
+        top:calc(50% + 180px);
+    }
+
+    #birthday-text{
+        font-size:5em;
+    }
+
+    #love-text{
+        font-size:4em;
+    }
+
+    .letter-box{
+        transform:translateY(-50%) scale(1.35) rotate(12deg);
+    }
+}
+@media (max-width:768px) {
+
+    #cake{
+        transform: scale(1.35);
+        transform-origin:center;
+    }
+
+    #birthday-text{
+        font-size:5rem;
+    }
+
+    #love-text{
+        font-size:4rem;
     }
 
 }
-/* ==========================
-   FIX RESPONSIVE MOBILE
-   CAKE AUTO SCALE
-========================== */
-
-#cake {
-    width: min(200px, 40vw);
-    height: auto;
-}
-
-
-/* Tablet + Mobile */
-@media (max-width: 600px) {
-
-    html, body {
-        overflow: hidden;
-    }
-
-
-    /* Bánh tự thu nhỏ */
-    #cake {
-        width: 150px;
-        height: auto;
-        margin: -80px auto 0 auto;
-    }
-
-
-    /* Nến theo bánh */
-    .vela-grande {
-        width: 18px;
-        height: 80px;
-
-        margin-left: -9px;
-        margin-top: -55px;
-    }
-
-
-    .flama-grande {
-        width: 18px;
-        height: 28px;
-
-        margin-left: -9px;
-        top: -30px;
-    }
-
-
-    /* Happy Birthday */
-    .birthday-container {
-        top: calc(50% - 190px);
-    }
-
-
-    #birthday-text {
-        font-size: 2.2em;
-    }
-
-
-    /* Tên người nhận */
-  @media(max-width:600px){
-
-    .text-container {
-        position: absolute;
-        top: calc(50% + 120px); /* đưa Bảo Ngọc xuống dưới bánh một khoảng cố định */
-        bottom: auto;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        z-index: 20;
-    }
-
-    #love-text {
-        font-size: 2.2em;
-        margin: 0;
-    }
-
-}
-
-
-    /* Phong thư */
-    .letter-box {
-
-        width: 80px;
-        height: 65px;
-
-        left: calc(50% + 75px);
-        top: calc(50% + 80px);
-    }
-
-}
-
-
-  </style>
+ </style>
 </head>
 <body>
 
@@ -437,7 +350,7 @@
   <div class="flama-grande"></div>
 </div>
 
-<svg id="cake" version="1.1" x="0px" y="0px" width="200px" height="500px" viewBox="0 0 200 500" enable-background="new 0 0 200 500" xml:space="preserve">
+<svg id="cake" version="1.1" x="0px" y="0px" width="200px" height="500px" viewBox="0 0 200 500" enable-background="new 0 0 200 300" xml:space="preserve">
     <path fill="#8e523f" d="M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002 c44.697,0,96.586,0,147.334,0C177.667-29.942,177.668-13.94,173.667-13.94z">
         <animate id="bizcocho_3" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1" begin="relleno_2.end" dur="0.3s" fill="freeze" values=" M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002 c44.697,0,96.586,0,147.334,0C177.667-29.942,177.668-13.94,173.667-13.94z ; M173.667,411.567c-47.995,12.408-102.955,12.561-147.334,0 c-3.848-1.089-0.189-16.089,3.661-15.002c44.836,12.66,90.519,12.753,139.427,0.07 C173.293,395.631,177.541,410.566,173.667,411.567z ; M173.667,427.569c-49.795,0-101.101,0-147.334,0c-3.999,0-4-16.002,0-16.002 c46.385,0,97.539,0,147.334,0C177.668,411.567,177.667,427.569,173.667,427.569z " />
     </path>
