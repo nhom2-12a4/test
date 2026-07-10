@@ -393,19 +393,24 @@
 
 
     /* Tên người nhận */
-  .text-container {
-    position: absolute;
-    bottom: 160px; /* đưa Bảo Ngọc lên cao hơn */
-    left: 0;
-    width: 100%;
-    text-align: center;
-    z-index: 20;
-}
+  @media(max-width:600px){
 
- #love-text {
-        font-size: 2.3em;
-        transform: translateY(-10px);
+    .text-container {
+        position: absolute;
+        top: calc(50% + 120px); /* đưa Bảo Ngọc xuống dưới bánh một khoảng cố định */
+        bottom: auto;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 20;
     }
+
+    #love-text {
+        font-size: 2.2em;
+        margin: 0;
+    }
+
+}
 
 
     /* Phong thư */
